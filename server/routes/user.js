@@ -40,8 +40,30 @@ userRouter.post("/login", async (req, res) => {
   }
 })
 
-userRouter.get("/", auth, (req, res) => {
-  res.send("Authenticated!")
+// Get User Profile
+userRouter.get("/me", auth, (req, res) => {
+  res.send(req.user)
+})
+
+//Update User
+userRouter.patch("/me", auth, async (req, res) => {
+  const allowedUpdates = ["username", "email", "password"]
+  const updates = Object.keys(req.body)
+
+  const isAllowed = updates.every((update) => allowedUpdates.includes(update))
+
+  if (!isAllowed) {
+    return res.status(404).send({ error: "No Update Key Found!" })
+  }
+
+  try {
+    updates.forEach((update) => (req.user[update] = req.body[update]))
+    await req.user.save()
+
+    res.send(req.user)
+  } catch (error) {
+    res.status(400).send({ error: error.message })
+  }
 })
 
 export { userRouter }
