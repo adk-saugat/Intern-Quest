@@ -66,4 +66,13 @@ userRouter.patch("/me", auth, async (req, res) => {
   }
 })
 
+userRouter.delete("/me", auth, async (req, res) => {
+  try {
+    const user = await User.deleteOne(req.user)
+    res.send(req.user)
+  } catch (error) {
+    res.status(400).send({ error: error.message })
+  }
+})
+
 export { userRouter }
