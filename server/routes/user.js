@@ -1,6 +1,7 @@
 import express from "express"
 import bcrypt from "bcryptjs"
 import { User } from "../models/user.js"
+import { Application } from "../models/application.js"
 import { auth } from "../middleware/auth.js"
 
 const userRouter = express.Router()
@@ -42,7 +43,7 @@ userRouter.post("/login", async (req, res) => {
 
 // Get User Profile
 userRouter.get("/me", auth, (req, res) => {
-  res.send(req.user)
+  res.send({ username: req.user.username, email: req.user.email })
 })
 
 //Update User
@@ -60,7 +61,7 @@ userRouter.patch("/me", auth, async (req, res) => {
     updates.forEach((update) => (req.user[update] = req.body[update]))
     await req.user.save()
 
-    res.send(req.user)
+    res.send({ message: "User data updated successfully!" })
   } catch (error) {
     res.status(400).send({ error: error.message })
   }
@@ -70,7 +71,11 @@ userRouter.patch("/me", auth, async (req, res) => {
 userRouter.delete("/me", auth, async (req, res) => {
   try {
     const user = await User.deleteOne(req.user)
-    res.send(req.user)
+    const applications = await Application.deleteMany({ user: req.user._id })
+    res.send({
+      message: "User deleted successfully",
+      user: { username: req.user.username, email: req.user.email },
+    })
   } catch (error) {
     res.status(400).send({ error: error.message })
   }
@@ -81,7 +86,7 @@ userRouter.post("/logout", auth, async (req, res) => {
   try {
     req.user.token = null
     await req.user.save()
-    res.send()
+    res.send({ message: "User Logged Out!" })
   } catch (error) {
     res.status(400).send({ error })
   }
