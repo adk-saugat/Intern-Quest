@@ -3,7 +3,7 @@ import Login from "../components/Login"
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col h-screen bg-white">
+    <div className="flex flex-col h-screen">
       <Header />
       <Login />
     </div>
