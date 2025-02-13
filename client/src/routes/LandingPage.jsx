@@ -1,11 +1,11 @@
+import { Outlet } from "react-router"
 import Header from "../components/header"
-import Login from "../components/Login"
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen sm:w-screen sm:flex-row">
       <Header />
-      <Login />
+      <Outlet />
     </div>
   )
 }
