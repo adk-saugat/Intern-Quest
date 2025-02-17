@@ -1,18 +1,8 @@
 const Header = () => {
-  const imageUrl =
-    "https://i.pinimg.com/736x/41/d4/da/41d4dacfcab895b86bb83d64bb2fca7f.jpg"
   return (
-    <div
-      className="h-[35%] sm:h-screen sm:w-[60%] bg-cover bg-top"
-      style={{ backgroundImage: `url(${imageUrl})` }}
-    >
-      <h1 className="mt-8 ml-8 tracking-tighter text-3xl font-semibold text-gray-700 font-averia">
-        <span>
-          Intern{" "}
-          <span className="text-[#00a896] underline underline-offset-10">
-            Quest
-          </span>
-        </span>
+    <div className="bg-[#343A40] text-[#E9ECEF] text-3xl sm:w-[30%] flex sm:justify-center">
+      <h1 className="m-6 font-averia">
+        Intern <span className="underline underline-offset-10">Quest</span>
       </h1>
     </div>
   )

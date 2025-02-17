@@ -1,16 +1,15 @@
 import { Routes, Route } from "react-router-dom"
-import LandingPage from "./routes/LandingPage"
-import Login from "./components/Login"
-import SignUp from "./components/SignUp"
+import LoginPage from "./routes/LoginPage"
+import SignUpPage from "./routes/SignUpPage"
+import Dashboard from "./routes/Dashboard"
 
 const App = () => {
   return (
-    <div className="overflow-scroll">
+    <div className="w-screen h-screen bg-[#DEE2E6] font-poppins">
       <Routes>
-        <Route path="/" element={<LandingPage />}>
-          <Route index element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-        </Route>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   )
