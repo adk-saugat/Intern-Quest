@@ -5,7 +5,7 @@ import Dashboard from "./routes/Dashboard"
 
 const App = () => {
   return (
-    <div className="w-screen h-screen bg-[#DEE2E6] font-poppins">
+    <div className="w-screen h-screen bg-[#DEE2E6]">
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
