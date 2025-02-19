@@ -20,7 +20,7 @@ const SignUp = () => {
         <h2 className="text-center font-semibold text-5xl sm:text-6xl">
           Hello there!
         </h2>
-        <p className="text-center text-md">Enter your details to continue!</p>
+        <p className="text-center text-md">Register to get started.</p>
       </div>
       <form
         action=""
@@ -72,10 +72,10 @@ const SignUp = () => {
           >
             Sign Up
           </button>
-          <p className="text-center mt-2">
+          <p className="text-center mt-2 text-sm">
             Already have an account?{" "}
             <a
-              className="text-blue-500 hover:underline cursor-pointer font-semibold"
+              className="text-blue-500 hover:underline cursor-pointer"
               onClick={() => navigate("/")}
             >
               login

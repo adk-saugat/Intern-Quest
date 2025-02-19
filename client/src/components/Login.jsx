@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import axios from "axios"
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -10,7 +11,17 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault()
-    console.log(email, password)
+
+    try {
+      const response = await axios.post("http://localhost:3000/users/login", {
+        email,
+        password,
+      })
+      localStorage.setItem("auth-token", response.data.token)
+      navigate("/dashboard")
+    } catch (error) {
+      console.log(error.response.data.error)
+    }
   }
 
   return (
@@ -19,7 +30,7 @@ const Login = () => {
         <h2 className="text-center font-semibold text-5xl sm:text-6xl">
           Welcome back!
         </h2>
-        <p className="text-center text-md">Create a free account!</p>
+        <p className="text-center text-md">Enter your details to continue!</p>
       </div>
       <form
         action=""
@@ -62,10 +73,10 @@ const Login = () => {
           >
             Login
           </button>
-          <p className="text-center mt-2">
+          <p className="text-center mt-2 text-sm">
             Don't have an account?{" "}
             <a
-              className="text-blue-500 hover:underline cursor-pointer font-semibold"
+              className="text-blue-500 hover:underline cursor-pointer"
               onClick={() => navigate("/signup")}
             >
               signup
