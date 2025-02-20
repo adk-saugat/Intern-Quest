@@ -1,4 +1,4 @@
-import { Dashboard } from "../components/Dashboard"
+import Home from "../components/Home"
 import Header from "../components/Header"
 
 const DashboardPage = () => {
@@ -6,7 +6,7 @@ const DashboardPage = () => {
   return (
     <div className="flex flex-col h-screen sm:w-screen sm:flex-row">
       <Header isDashboard={isDashboard} />
-      <Dashboard />
+      <Home />
     </div>
   )
 }

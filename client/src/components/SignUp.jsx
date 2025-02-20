@@ -17,7 +17,7 @@ const SignUp = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center gap-8">
       <div className="flex flex-col sm:gap-4">
-        <h2 className="text-center font-semibold text-5xl sm:text-6xl">
+        <h2 className="text-center font-medium text-5xl sm:text-6xl">
           Hello there!
         </h2>
         <p className="text-center text-md">Register to get started.</p>
