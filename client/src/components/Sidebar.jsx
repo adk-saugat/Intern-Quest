@@ -5,28 +5,23 @@ import { CgProfile } from "react-icons/cg"
 
 const Sidebar = () => {
   return (
-    <div className="hidden sm:block sm:px-8 sm:pt-10 sm:border-t-2 sm:border-t-[#495057]">
-      <ul className="flex flex-col gap-4 text-xl">
-        <li className="flex items-center gap-4 px-4 py-2 rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
+    <div className="w-full sm:px-8 sm:pt-10 sm:border-t-2 sm:border-t-[#495057]">
+      <ul className="flex sm:flex-col justify-evenly sm:gap-4 gap-2 text-3xl sm:text-xl px-2 sm:px-0 py-2 sm:py-0 bg-[#343A40] sm:bg-transparent">
+        <li className="flex items-center gap-2 sm:gap-4 px-3 py-2 sm:rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
           <RiHomeLine />
-          <span>Dashboard</span>
+          <span className="hidden sm:inline">Dashboard</span>
         </li>
-        <li className="flex items-center gap-4 px-4 py-2 rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
+        <li className="flex items-center gap-2 sm:gap-4 px-3 py-2 sm:rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
           <AiOutlineAppstore />
-          <span>Applications</span>
+          <span className="hidden sm:inline">Applications</span>
         </li>
-        <li className="flex items-center gap-4 px-4 py-2 rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
+        <li className="flex items-center gap-2 sm:gap-4 px-3 py-2 sm:rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
           <IoSettingsOutline />
-          <span>Setting</span>
+          <span className="hidden sm:inline">Setting</span>
         </li>
-        <li className="flex items-center gap-4 px-4 py-2 rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
+        <li className="flex items-center gap-2 sm:gap-4 px-3 py-2 sm:rounded-3xl hover:bg-[#495057] hover:shadow-2xl">
           <CgProfile />
-          <span>Profile</span>
-        </li>
-        <li className="block sm:hidden">
-          <button className=" bg-[#343A40] text-md px-6 py-2 rounded-3xl shadow-6xl cursor-pointer text-[#E9ECEF] hover:bg-[#495057]">
-            Log Out
-          </button>
+          <span className="hidden sm:inline">Profile</span>
         </li>
       </ul>
     </div>
